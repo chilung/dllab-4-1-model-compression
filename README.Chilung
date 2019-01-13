@@ -1,0 +1,3 @@
+cd distiller
+source env/bin/activate # enter virtual environment
+deactivate # exit virtual environment

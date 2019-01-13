@@ -1,0 +1,16 @@
+#
+# python3 compress_classifier.py --arch resnet20_cifar  ../../../data.cifar10 -p=50 --lr=0.3 --epochs=300 -b 128
+# --compress=resnet20_cifar_baseline.yaml -j=1 --vs 0 --deterministic
+#
+lr_schedulers:
+  training_lr:
+    class: MultiStepMultiGammaLR
+    milestones: [100, 200, 250]
+    gammas: [0.1, 0.1, 0.5]
+
+policies:
+    - lr_scheduler:
+        instance_name: training_lr
+      starting_epoch: 0
+      ending_epoch: 301
+      frequency: 1
